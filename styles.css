@@ -1,0 +1,98 @@
+/* margins: double change in line-height (0.75 * 2) = 1.5em */
+
+body {margin:0; font-family:sans-serif; font-size:15px; line-height:1.75;}
+
+a {color:hsl(240, 50%, 50%); color:#4040BF;}
+
+.Black-White {color:#000000; background-color:#FFFFFF;}
+.Grey {color:#333333; background-color:#FCFCFC; background-color:#FFFFFF;}
+.Sepia {color:#5F4B32; background-color:#FBF0D9;}
+.White-Black {color:#FFFFFF; background-color:#000000;}
+    .White-Black a {color:hsl(240, 50%, 85%); color:#C6C6EC;}
+    .White-Black footer #about img.avatar {background-color:hsl(0,0%,25%);}
+
+
+header {}
+
+h1, h2 {margin:0; font-family:serif; font-weight:normal; line-height:1;}
+h1 {font-size:40px;}
+	h1 .sub {font-size:30px;}
+	h1 span {display:inline-block;}
+h2 {font-size:inherit; font-style:italic;}
+
+aside div, figure figcaption {line-height:normal; font-style:italic; font-size:80%;}
+
+figure {margin:0; text-align:center;}
+figure img {max-width:100%;}
+
+section {}
+section p {margin:0; text-indent:1.5em; text-align:justify;}
+
+footer {border-top:1px solid;}
+footer .content {line-height:normal; font-size:80%;}
+
+footer p {margin:0 0 0.75em 0;}
+
+footer menu, footer #about {width:47%;}
+
+footer menu {margin:0; padding:0; float:left; margin-bottom: 1.5em;}
+footer menu .links {line-height:24px;}
+footer menu .links .likes {height:24px; text-align:right; float:right; clear:right;}
+
+clear {display:block; clear:both;}
+
+footer #about {float:right;}
+footer #about h1 {font-size:2em; margin-bottom:0.25em;} /* half-margin */
+footer #about img.avatar {float:right;}
+
+@media (max-width:500px) {
+	footer menu, footer #about {float:none; width:100%;}
+}
+
+header, aside#blurb, aside#blurb .content, section, footer, figure, figure figcaption, #controls {
+	margin:1.5em; padding:1.5em;
+}
+@media (max-width:320px) {
+	body {line-height:1.5;}
+
+	header, aside#blurb, section, footer, figure, figure figcaption, controls {
+		margin:1em; padding:1em;
+	}
+
+	aside#blurb .content {padding:0 1em;}
+	section p {text-indent:1em; text-align:left;}
+
+	footer menu {margin-bottom:1em;}
+    footer #about h1 {margin-bottom:0.16em;}
+}
+header, aside#blurb, section, footer {
+	max-width:40em;
+	margin-left:auto; margin-right:auto;
+}
+
+
+header, aside#blurb, section, aside#blurb .content, figure figcaption {padding-top:0; padding-bottom:0;}
+aside#blurb .content, figure figcaption {margin:0;}
+figure {padding:0; padding-right:0; margin-left:0; margin-right:0;}
+footer {padding-bottom:0;}
+
+#controls {text-align:right; padding:0; margin-left:0; margin-right:0;}
+
+#controls select, #controls button {
+	font:inherit; height:1.75em; outline:0;
+	background:#F8F8F8; border:1px solid #CCCCCC;
+}
+
+#controls .size {display:inline-block;}
+#controls .size button {
+	text-align:center; color:black;
+	padding:0;
+	cursor:pointer;
+}
+#controls .size button:disabled {cursor:default;}
+
+#controls .size button.change {width:1.75em; border-radius:0.25em;}
+#controls .size button.change.down {border-top-right-radius:0; border-bottom-right-radius:0;}
+#controls .size button.change.up {border-top-left-radius:0; border-bottom-left-radius:0;}
+
+#controls .size button.display {display:inline-block; width:3em; border-width:1px 0;}
