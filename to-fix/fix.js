@@ -27,25 +27,18 @@ Array.prototype.forEach.call(document.querySelectorAll("span"), function (span) 
 	span.parentNode.removeChild(span);
 });
 
-var HTML = document.body.innerHTML.replace(/[“”‘’—…]|&nbsp;|(\s+class="[^"]*")/g, function (match, classAttr) {
+// [“”‘’—…]
+var HTML = document.body.innerHTML.replace(/&nbsp;|(\s+class="[^"]*")/g, function (match, classAttr) {
 	if (classAttr) { return ""; }
-
-	switch (match) {
-		case "“": return "&ldquo;";
-		case "”": return "&rdquo;";
-		case "‘": return "&lsquo;";
-		case "’": return "&rsquo;";
-		case "—": return "&mdash;";
-		case "&nbsp;": return " ";
-		case "…": return "&hellip;";
-	}
+	else if (match === "&nbsp;") { return " "; }
 });
 var script = HTML.lastIndexOf("<script");
 if (script !== -1) { HTML = HTML.substring(0, script); }
 HTML = (HTML
-	.replace(/^\s*|\s*$/g, "")
-	.replace(/<p><\/p>/g, "<p>&nbsp;</p>")
+	.replace(/^\s*|\s*(?=\s)|\s*$/g, "")
+	.replace(/<\/p>\s*<p>/g, "\n")
 	.replace(/<\/(h1|p)>/g, "$&\n")
+	.replace(/<em>|<\/em>/g, "_")
 );
 
 var source = document.body.appendChild(document.createElement("TEXTAREA"));
