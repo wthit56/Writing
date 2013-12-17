@@ -1,4 +1,20 @@
-﻿var fs = require("fs"), path = require("path");
+﻿var arguments = process.argv;
+var fs = require("fs"), path = require("path");
+
+var force = false;
+if (arguments.length > 2) {
+	if (arguments[2] === "-force") {
+		force = true;
+	}
+	else {
+		console.log(
+			"The arguments '" + arugments.slice(2).join(" ") + "' are not valid. "+
+			"You may use the following arguments: \n\n"+
+			"-force\tForces the writing of the available stories"
+		);
+		process.exit();
+	}
+}
 
 var encodeHTML = (function () {
 	var useEM = false, openEM = true;
@@ -40,7 +56,6 @@ var template = (function () {
 
 		if (image[0]) {
 			image = {
-				src: titleMain + ".jpg",
 				title: encodeHTML(image[1]),
 				url: image[2],
 				artist: encodeHTML(image[3]),
@@ -99,16 +114,25 @@ var isStory = /.story$/;
 fs.readdirSync("./source").forEach(function (filename) {
 	if (!isStory.test(filename)) { return; }
 
-	console.log("checking " + filename);
+	process.stdout.write("checking " + filename);
+	//console.log("checking " + filename);
 
 	var newFilename = "./" + path.basename(filename, ".story") + ".html";
 
 	if (fs.existsSync(newFilename)) {
 		var filemod = fs.statSync(newFilename).mtime;
-		if ((filemod >= template.modified) || (filemod >= fs.statSync("./source/" + filename).mtime)) { return; }
+		if (
+			!force &&
+			(filemod >= template.modified) &&
+			(filemod >= fs.statSync("./source/" + filename).mtime)
+		) {
+			process.stdout.write(" [skipped]\n");
+			return;
+		}
 	}
 
-	console.log("\twriting...");
+	process.stdout.write(" [writing...");
+	//console.log("\twriting...");
 
 	// console.log("reading " + filename + "...");
 	var data = fs.readFileSync("./source/" + filename, "utf-8");
@@ -123,7 +147,5 @@ fs.readdirSync("./source").forEach(function (filename) {
 
 	fs.writeFileSync(newFilename, HTML);
 
-
-
-	console.log("\tdone");
+	process.stdout.write("]\n");
 });
