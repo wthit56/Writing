@@ -1,21 +1,4 @@
-var on = (function(){
-	if(window.addEventListener){
-		return function(element, event, listener, capture){
-			return element.addEventListener(event, listener, capture);
-		}
-	}
-	else if(window.attachEvent){
-		return function(element, event, listener, capture){
-			return element.attachEvent("on" + event, listener, capture);
-		}
-	}
-	else{
-		console.warn("Browser does not support events.");
-		return function() { };
-	}
-})();
-
-on(window, "load", function () {
+listen(window, "load", function () {
 	var image = document.getElementsByTagName("FIGURE");
 	if (image.length > 0) { image = image[0].getElementsByTagName("IMG")[0]; }
 	else { image = null; }
@@ -79,7 +62,7 @@ on(window, "load", function () {
 	addStyle("White on Black", "White-Black");
 	addStyle("Sepia");
 
-	on(style, "change", function () {
+	listen(style, "change", function () {
 		document.documentElement.className = style.value;
 
 		var expires = new Date();
@@ -102,18 +85,18 @@ on(window, "load", function () {
 	sizeDown.innerText = "-";
 	sizeDown.className = "change down";
 	sizeDown.change = -1;
-	on(sizeDown, "click", changeSize);
+	listen(sizeDown, "click", changeSize);
 
 	var sizeDisplay = sizeControls.appendChild(document.createElement("BUTTON"));
 	sizeDisplay.className = "display";
 	sizeDisplay.title = "Click to reset to default size (15px)";
-	on(sizeDisplay, "click", defaultSize);
+	listen(sizeDisplay, "click", defaultSize);
 
 	var sizeUp = sizeControls.appendChild(document.createElement("BUTTON"));
 	sizeUp.innerText = "+";
 	sizeUp.className = "change up";
 	sizeUp.change = 1;
-	on(sizeUp, "click", changeSize);
+	listen(sizeUp, "click", changeSize);
 
 	if (foundSize) {
 		size = +foundSize[1];
@@ -166,7 +149,6 @@ on(window, "load", function () {
 
 		sizeDisplay.innerText = size + "px";
 		document.body.style.fontSize = size + "px";
-		console.log(size);
 
 		var expires = new Date();
 		expires.setFullYear(expires.getFullYear() + ((size === 15) ? -1 : 1));
