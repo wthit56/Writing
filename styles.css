@@ -6,16 +6,18 @@ a {color:hsl(240, 50%, 50%); color:#4040BF;}
 
 .Black-White {color:#000000; background-color:#FFFFFF;}
 .Grey {color:#333333; background-color:#FCFCFC; background-color:#FFFFFF;}
+	.Grey h1 {color:#000000;}
 .Sepia {color:#5F4B32; background-color:#FBF0D9;}
 .White-Black {color:#FFFFFF; background-color:#000000;}
     .White-Black a {color:hsl(240, 50%, 85%); color:#C6C6EC;}
-    .White-Black footer #about img.avatar {background-color:hsl(0,0%,25%);}
+    .White-Black h1 {color:inherit;}
+	.White-Black footer #about img.avatar {background-color:hsl(0,0%,25%);}
 
 
 header {}
 
 h1, h2 {margin:0; font-family:serif; font-weight:normal; line-height:1;}
-h1 {font-size:40px;}
+h1 {font-size:40px; color:#000000;}
 	h1 .sub {font-size:30px;}
 	h1 span {display:inline-block;}
 h2 {font-size:inherit; font-style:italic;}

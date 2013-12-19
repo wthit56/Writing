@@ -3,18 +3,16 @@
 	var figure = document.getElementsByTagName("FIGURE");
 	if (figure.length > 0) {
 		var registered = null;
+		var image = figure[0].getElementsByTagName("IMG")[0];
 
-		var findRes = /\s*\(480\)(?=\.[^.]+$)/;
+		var findRes = /\s*\(small\)(?=\.[^.]+$)/;
 		function checkImage() {
-			if (screen.width > 480) {
-				var image = figure[0].getElementsByTagName("IMG")[0];
-				figure = null;
-
+			if (screen.width > image.width) {
 				var largeImage = new Image();
 				largeImage.onload = function () {
 					// console.log("large image loaded.");
 					image.parentNode.replaceChild(largeImage, image);
-					image = null;
+					figure = image = null;
 				};
 				// console.log("loading large image...");
 				largeImage.src = image.getAttribute("src").replace(findRes, "");
@@ -26,7 +24,16 @@
 				}
 			}
 		}
-		checkImage();
+
+		if (image.complete) {
+			checkImage();
+		}
+		else {
+			image.onload = function () {
+				checkImage();
+				image.onload = null;
+			};
+		}
 
 		if (registered === null) {
 			registered = true;
