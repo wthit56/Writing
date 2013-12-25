@@ -28,7 +28,14 @@ figure {margin:0; text-align:center;}
 figure img {max-width:100%;}
 
 section {}
-section p {margin:0; text-indent:1.5em; text-align:justify;}
+	section h2 {font-size:1.8em; font-style:normal; padding-bottom:0.6em;}
+	section p {margin:0; text-indent:1.5em; text-align:justify;}
+/*
+		section p:first-of-type {text-indent:0;}
+		section p:first-of-type:first-letter {float:left; font-size:3.3em; padding-right:0.1em; font-family:serif; line-height:1;}
+*/
+	section hr {border:none; text-align:center; margin:0; padding:3% 0; line-height:1.8;}
+		section hr:before {content:"\0025EF";}
 
 footer {border-top:1px solid;}
 footer .content {line-height:normal; font-size:80%;}
@@ -39,7 +46,7 @@ footer menu, footer #about {width:47%;}
 
 footer menu {margin:0; padding:0; float:left; margin-bottom: 1.5em;}
 footer menu .links {line-height:24px;}
-footer menu .links .likes {height:24px; text-align:right; float:right; clear:right;}
+	footer menu .links .likes {height:24px; text-align:right; float:right; clear:right;}
 
 clear {display:block; clear:both;}
 
@@ -62,6 +69,7 @@ header, aside#blurb, aside#blurb .content, section, footer, figure, figure figca
 	}
 
 	aside#blurb .content {padding:0 1em;}
+	
 	section p {text-indent:1em; text-align:left;}
 
 	footer menu {margin-bottom:1em;}
