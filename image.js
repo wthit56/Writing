@@ -16,7 +16,7 @@
 					
 					largeImage.style.width="100%";
 					
-					var maxHeight = screen.height - 100;
+					var maxHeight = screen.height - 200;
 					if(largeImage.height > maxHeight){
 						console.log(largeImage, maxHeight / largeImage.width);
 						largeImage.style.maxWidth=largeImage.width*(maxHeight / largeImage.height) +"px";
