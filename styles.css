@@ -11,7 +11,7 @@ a {color:hsl(240, 50%, 50%); color:#4040BF;}
 .White-Black {color:#FFFFFF; background-color:#000000;}
     .White-Black a {color:hsl(240, 50%, 85%); color:#C6C6EC;}
     .White-Black h1 {color:inherit;}
-	.White-Black footer #about img.avatar {background-color:hsl(0,0%,25%);}
+	.White-Black > footer #about img.avatar {background-color:hsl(0,0%,25%);}
 
 
 header {}
@@ -37,34 +37,38 @@ section {}
 	section hr {border:none; text-align:center; margin:0; padding:3% 0; line-height:1.8;}
 		section hr:before {content:"\0025EF";}
 
-footer {border-top:1px solid;}
-footer .content {line-height:normal; font-size:80%;}
+	blockquote {margin:0.875em 0; font-style:italic;}
+		blockquote p {text-indent:0; text-align:center;}
+		blockquote footer {text-align:right;}
+		
+body > footer {border-top:1px solid;}
+body > footer .content {line-height:normal; font-size:80%;}
 
-footer p {margin:0 0 0.75em 0;}
+body > footer p {margin:0 0 0.75em 0;}
 
-footer menu, footer #about {width:47%;}
+body > footer menu, body > footer #about {width:47%;}
 
-footer menu {margin:0; padding:0; float:left; margin-bottom: 1.5em;}
-footer menu .links {line-height:24px;}
-	footer menu .links .likes {height:24px; text-align:right; float:right; clear:right;}
+body > footer menu {margin:0; padding:0; float:left; margin-bottom: 1.5em;}
+body > footer menu .links {line-height:24px;}
+	body > footer menu .links .likes {height:24px; text-align:right; float:right; clear:right;}
 
 clear {display:block; clear:both;}
 
-footer #about {float:right;}
-footer #about h1 {font-size:2em; margin-bottom:0.25em;} /* half-margin */
-footer #about img.avatar {float:right;}
+body > footer #about {float:right;}
+body > footer #about h1 {font-size:2em; margin-bottom:0.25em;} /* half-margin */
+body > footer #about img.avatar {float:right;}
 
 @media (max-width:500px) {
-	footer menu, footer #about {float:none; width:100%;}
+	body > footer menu, body > footer #about {float:none; width:100%;}
 }
 
-header, aside#blurb, aside#blurb .content, section, footer, figure, figure figcaption, #controls {
+header, aside#blurb, aside#blurb .content, section, body > footer, figure, figure figcaption, #controls {
 	margin:1.5em; padding:1.5em;
 }
 @media (max-width:320px) {
 	body {line-height:1.5;}
 
-	header, aside#blurb, section, footer, figure, figure figcaption, controls {
+	header, aside#blurb, section, body > footer, figure, figure figcaption, controls {
 		margin:1em; padding:1em;
 	}
 
@@ -72,10 +76,10 @@ header, aside#blurb, aside#blurb .content, section, footer, figure, figure figca
 	
 	section p {text-indent:1em; text-align:left;}
 
-	footer menu {margin-bottom:1em;}
-    footer #about h1 {margin-bottom:0.16em;}
+	body > footer menu {margin-bottom:1em;}
+    body > footer #about h1 {margin-bottom:0.16em;}
 }
-header, aside#blurb, section, footer {
+header, aside#blurb, section, body > footer {
 	max-width:40em;
 	margin-left:auto; margin-right:auto;
 }
@@ -84,7 +88,7 @@ header, aside#blurb, section, footer {
 header, aside#blurb, section, aside#blurb .content, figure figcaption {padding-top:0; padding-bottom:0;}
 aside#blurb .content, figure figcaption {margin:0;}
 figure {padding:0; padding-right:0; margin-left:0; margin-right:0;}
-footer {padding-bottom:0;}
+body > footer {padding-bottom:0;}
 
 #controls {text-align:right; padding:0; margin-left:0; margin-right:0;}
 

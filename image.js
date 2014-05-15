@@ -3,7 +3,7 @@
 	var figure = document.getElementsByTagName("FIGURE");
 	if (figure.length > 0) {
 		var registered = null;
-		var image = figure[0].getElementsByTagName("IMG")[0];
+		var image = figure[figure.length - 1].getElementsByTagName("IMG")[0];
 
 		var findRes = /\s*\(small\)(?=\.[^.]+$)/;
 		function checkImage() {
@@ -13,6 +13,14 @@
 					// console.log("large image loaded.");
 					image.parentNode.replaceChild(largeImage, image);
 					figure = image = null;
+					
+					largeImage.style.width="100%";
+					
+					var maxHeight = screen.height - 100;
+					if(largeImage.height > maxHeight){
+						console.log(largeImage, maxHeight / largeImage.width);
+						largeImage.style.maxWidth=largeImage.width*(maxHeight / largeImage.height) +"px";
+					}
 				};
 				// console.log("loading large image...");
 				largeImage.src = image.getAttribute("src").replace(findRes, "");
