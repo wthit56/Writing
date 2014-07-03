@@ -10,7 +10,6 @@ a {color:#4040BF;}
 .Sepia {color:#5F4B32; background-color:#FBF0D9;}
 .White-Black {color:#FFFFFF; background-color:#000000;}
     .White-Black a {color:#C6C6EC;}
-	.White-Black #index .note.released {color:#000000;}
 	.White-Black h1 {color:inherit;}
 	.White-Black > footer #about img.avatar {background-color:hsl(0,0%,25%);}
 
@@ -120,8 +119,8 @@ body > footer {padding-bottom:0;}
 		#index li {clear:both; margin:0.75em 0;}
 	#index li > a {font-size:150%; color:inherit;}
 	#index p {display:inline; padding-left:0.75em;}
-	#index .note {float:right; color:#FFFFFF; padding:0 8px; border-radius:0.5em;}
-		#index .note.updated {background-color:#0000FF;}
-		#index .note.released {background-color:#FFA600;}
+	#index .note {float:right; color:#000000; padding:0 8px; border-radius:0.5em;}
+		#index .note.updated {background-color:#C6C6EB;}
+		#index .note.released {background-color:#FFD280;}
 	#index div {text-align:right;}
 		#index div .note {float:none; display:inline-block;}
