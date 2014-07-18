@@ -16,7 +16,7 @@ var article = document.getElementsByTagName("ARTICLE")[0];
 	controls.id = "controls";
 
 	var indexLink = controls.appendChild(document.createElement("A"));
-	indexLink.href = "../";
+	indexLink.href = "";
 	indexLink.innerText = "Read More Stories";
 
 	{
