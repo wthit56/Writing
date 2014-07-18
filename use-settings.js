@@ -19,7 +19,9 @@ var article = document.getElementsByTagName("ARTICLE")[0];
 	var indexLink = document.createElement("A");
 	indexLink.href = "";
 	indexLink.innerText = "Read More Stories";
+	console.log(window.location.href, indexLink.href);
 	if (window.location.href !== indexLink.href) {
+		console.log("add index link");
 		controls.appendChild(indexLink);
 	}
 	else {
