@@ -95,6 +95,10 @@ body > footer {padding-bottom:0;}
 
 #controls {text-align:right; padding-top:0; padding-bottom:0;}
 
+#controls a {float:left;}
+
+#controls .group {display:inline-block;}
+
 #controls select, #controls button {
 	font:inherit; height:1.75em; outline:0;
 	background:#F8F8F8; border:1px solid #CCCCCC;
@@ -117,9 +121,9 @@ body > footer {padding-bottom:0;}
 #index {}
 	#index ul {list-style:none; margin:0; padding:0;}
 		#index li {clear:both; margin:0.75em 0;}
-	#index li > a {font-size:150%; color:inherit;}
+	#index li > a {font-size:132%; color:inherit;}
 	#index p {display:inline; padding-left:0.75em;}
-	#index .note {float:right; color:#000000; padding:0 8px; border-radius:0.5em;}
+	#index .note {float:right; color:#000000; padding:0 8px; border-radius:0.5em; font-size:85%;}
 		#index .note.updated {background-color:#C6C6EB;}
 		#index .note.released {background-color:#FFD280;}
 	#index div {text-align:right;}
