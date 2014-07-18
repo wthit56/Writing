@@ -15,9 +15,16 @@ var article = document.getElementsByTagName("ARTICLE")[0];
 	var controls = article.appendChild(document.createElement("DIV"));
 	controls.id = "controls";
 
-	var indexLink = controls.appendChild(document.createElement("A"));
+	
+	var indexLink = document.createElement("A");
 	indexLink.href = "";
 	indexLink.innerText = "Read More Stories";
+	if (window.location.href !== indexLink.href) {
+		controls.appendChild(indexLink);
+	}
+	else {
+		indexLink = null;
+	}
 
 	{
 		var group = controls.appendChild(document.createElement("SPAN"));
