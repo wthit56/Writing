@@ -35,7 +35,7 @@ section {}
 		section p:first-of-type:first-letter {float:left; font-size:3.3em; padding-right:0.1em; font-family:serif; line-height:1;}
 */
 	section hr {border:none; text-align:center; margin:0; padding:3% 0; line-height:1.8;}
-		section hr:before {content:"\0025EF";}
+		section hr:before {/* content:"\0025EF"; */}
 
 	blockquote {margin:0.875em 0; font-style:italic;}
 		blockquote p {text-indent:0; text-align:center;}
