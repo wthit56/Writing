@@ -1,0 +1,118 @@
+body {font-family:sans-serif; margin:0;}
+
+.b-w {color:black; background-color:white;}
+.grey {color:#333333; background-color:white;}
+.sepia {color:#5F4B32; background-color:#FBF0D9;}
+.w-b {color:white; background-color:black;}
+	.w-b a {color:skyblue;}
+	.w-b .field .value {color:white; background-color:black;}
+	.w-b .pitch .avatar {background:white; padding-left:0.6em;}
+
+.grey h1, .grey .h1, .grey h2, .grey .h2, .grey .blurb,
+	.grey #controls .heading, .grey .field .label, .sepia .field .button,
+	.grey .image, .grey .quote.citation .inner,
+.sepia h1, .sepia .h1, .sepia h2, .sepia .h2, .sepia .blurb,
+	.sepia #controls .heading, .sepia .field .label, .sepia .field .button,
+	.sepia .image, .sepia .quote.citation .inner
+		{color:black;}
+
+a {color:blue; text-decoration:underline;}
+h1, .h1, h2, .h2 {font-family:serif; margin:0; font-weight:normal;}
+	h1, .h1 {font-size:1.8em;}
+	h2, .h2 {font-size:1.2em;}
+
+.centre-col {max-width: 40.5em; margin:0 auto; padding:0 1.8em; clear:left;}
+.seperate {margin-top:1.8em; margin-bottom:1.8em;}
+.wrap-block {display:inline-block;}
+.no-selection {user-select:none; -webkit-user-select:none;}
+
+.story {}
+
+.intro {margin-top:0.6em; margin-bottom:1.8em;}
+.intro h1, .intro h2 {display:inline-block;}
+.intro h2 {font-style:italic;}
+
+.blurb {margin:0.6em 0; font-style:italic;}
+	.blurb.simple {overflow:hidden;}
+	.blurb.simple .home {float:right;}
+
+	.blurb.complex {}
+	.blurb.complex p {margin:0.6em 0;}
+	.blurb.complex .home {text-align:right; float:none; display:block;}
+
+.field {display:inline-block; text-align:left; margin:0.3em 0 0.3em 0.3em;}
+	.field .group {display: inline-block; white-space:nowrap; margin-left:0.3em;}
+	.field .label {font-family:serif;}
+	.field .part {
+		margin:0 0 0 0.3em; border:solid #b9b9b9; border-width:1px 0 1px 1px;
+		font:inherit; display:inline-block; /*padding: 0.1em 0.3em;*/
+		background:#efefef;
+	}
+	.field .value {color:inherit; background-color:white; background-color:rgba(255,255,255,0.75);}
+		.field .select {/*padding:0.055em 0.3em;*/}
+	.field .button {cursor:pointer;}
+
+	.field.complex .part {margin-left:0;}
+	.field.complex .left, .field.complex .right {border-radius:0.2em; border-width:1px;}
+		.field.complex .left {border-top-right-radius:0; border-bottom-right-radius:0; border-right-width:0;}
+		.field.complex .right {border-top-left-radius:0; border-bottom-left-radius:0;}
+
+	.field.complex .annotation {padding:1px 6px;}
+		.field.complex .a-right {border-left:0;}
+
+.image {margin:1.8em 0; text-align:center;}
+.image img.large {max-height:80%; max-width:100%;}
+.image img.small {display:none;}
+.image figcaption {font-style:italic;}
+
+#controls {display:block; padding-left:0;}
+	#controls.no-script {display:none;}
+	#controls .heading {margin-bottom:0.3em; overflow:hidden; cursor:pointer;}
+		#controls .heading .message {float:right; opacity:0.6;}
+		#controls .is-open {display:none;}
+		#controls[open] .is-closed {display:none;}
+		#controls[open] .is-open {display:block;}
+	#controls .positioning {text-align:right; overflow-x:auto; overflow-y:hidden;}
+	#controls #font-size-value {text-align:center; width:3em;}
+	#controls #font-size-reset {}
+
+	#controls .change {width:24px; width:1.8em;}
+		#controls .change span {height:1.2em;}
+
+.prose p {margin:0; text-indent:1.8em; line-height:1.8em; text-align:justify;}
+.not-justified .prose p {text-align:start;}
+	.prose hr {border:0; text-align:center; margin:1.2em 0;}
+	.prose hr:before {content:"\2756"; display:block; font-size:1.5em;}
+
+.quote {margin-top:1.2em; margin-bottom:1.2em;}
+.quote .inner {padding:0.6em 1.8em;}
+.quote .content {font-size:1.2em;}
+.quote footer {text-align:end; margin-top:0.6em;}
+
+	.quote.note {}
+
+	.quote.citation .inner {
+		border-style:solid; border-width:0 1.8em;
+		padding:0.6em 1.8em;
+	}
+	.quote.citation quote {font-family:serif;}
+	.quote.citation footer {font-style:italic;}
+
+.pitch {border-top:1px solid #dddddd;}
+.pitch .avatar {float:right; margin:0 -1.8em 0.6em 0.6em;}
+.pitch p {margin:0.6em 0;}
+.pitch p:first-of-type {margin-top:1.8em;}
+.pitch menu {padding-left:0;}
+
+@media (max-width:320px) {
+	.centre-col {padding:0 0.6em;}
+	.prose p {text-align:left; text-indent:1.2em;}
+}
+
+/* defaults */
+body {
+	/* Colours: Black on White (b-w) */
+	color:black; background-color:white;
+	/* Font-Size: 17 */
+	font-size:17px;
+}

@@ -1,0 +1,6 @@
+body.print-hook {color:black;}
+
+.image img.large {display:none;}
+.image img.small {display:inline-block;}
+
+#controls {display:none;}
