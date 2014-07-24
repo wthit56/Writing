@@ -1,0 +1,2 @@
+﻿section hr {padding:0;}
+section hr:before {content:"\21CB"; font-size:205%;}
