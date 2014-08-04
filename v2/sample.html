@@ -40,6 +40,7 @@
 					<span class="message is-closed">click/tap to open</span>
 					<span class="message is-open">click/tap to close</span>
 				</summary>
+				<div class="border centre-col"></div>
 				<div class="positioning centre-col">
 					<form id="colours" class="field complex">
 						<label for="colours-value" class="label">Colour Scheme:</label
@@ -56,11 +57,11 @@
 						<form id="font-size" class="field complex">
 							<label for="font-size-value" class="label">Font Size:</label
 							><span class="group">
-								<button id="font-size-lower" class="part left button change"><span>-</span></button
-								><input id="font-size-value" class="part value" type="number" min="15" max="30" value="17" 
+								<input id="font-size-lower" class="part left button change" value="-" type="button"
+								/><input id="font-size-value" class="part value" type="number" min="15" max="30" value="17" 
 								/><span class="part annotation a-right">px</span
 								><input id="font-size-reset" class="part button" type="reset" 
-								/><button id="font-size-higher" class="part button change right"><span>+</span></button>
+								/><input id="font-size-higher" class="part button change right" value="+" type="button" />
 							</span>
 						</form>
 						<form class="field simple">

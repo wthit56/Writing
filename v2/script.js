@@ -1,3 +1,16 @@
+(function shimRAF() {
+	if(!("requestAnimationFrame" in window)){
+		window.requestAnimationFrame = function(callback) {
+			return setTimeout(function() {
+				callback.apply(this, Date.now());
+			}, Date.now()%16);
+		};
+		window.cancelAnimationFrame = function(id){
+			clearTimeout(id);
+		}
+	}
+})();
+
 (function addEventListener_shim() {
 	if (!window.addEventListener && window.attachEvent) { // addEventListener
 		(HTMLDocument || Window).prototype.addEventListener = Element.prototype.addEventListener =
@@ -13,7 +26,8 @@
 })();
 
 (function setupImages() {
-	var sw = screen.width, sh=screen.height;
+	var ratio = ("devicePixelRatio" in window) ? window.devicePixelRatio : 1;
+	var sw = screen.width * ratio, sh = screen.height * ratio;
 	
 	var findSmall = /(?: |%20)\(small\)(?=\.[^.]+$)/;
 	function processImage() {
@@ -35,8 +49,10 @@
 	}
 	function processLarge() {
 		this.removeEventListener("load", processLarge);
+		
 		this.small.parentNode.insertBefore(this, this.small);
 		this.small.className = "small";
+		delete this.small;
 	}
 
 	Array.prototype.forEach.call(document.getElementsByClassName("image"), function(img) {
@@ -52,7 +68,18 @@
 
 (function setupControls() {
 	var controls = document.getElementById("controls");
-	controls.className = controls.className.replace(/^no-script +| +no-script(?= |$)/, "");
+	controls.className = controls.className.replace(
+		/^no-script\s+|\s+no-script(?=\s+|$)/,
+		""
+	);
+	
+	controls.open = true;
+	var height = controls.offsetHeight;
+	controls.open = false;
+	if (controls.offsetHeight !== height) {
+		controls.className += " opener";
+	}
+	controls.open = true;
 
 	var cookie = document.cookie,
 		expires = new Date(Date.now() + (28 * 24 * 60 * 60 * 1000));
@@ -125,52 +152,79 @@
 		var min = 15, max = 30;
 		
 		var form = document.getElementById("font-size");
-		form.addEventListener("reset", function() {
-			setTimeout(update, 0);
-		});
 		form.addEventListener("submit", function(e) {
 			e.preventDefault();
 		});
+		form.addEventListener("reset", function(e) {
+			update(17, true);
+		});
 		
 		var value = document.getElementById("font-size-value");
-		value.addEventListener("change", update);
-		
-		document.getElementById("font-size-lower").addEventListener("click", function(e) {
-			if (fontSize > min) {
-				value.value = fontSize - 1;
-				update();
-			}
-			e.preventDefault();
-		});
-		document.getElementById("font-size-higher").addEventListener("click", function(e){
-			if (fontSize < max) {
-				value.value = fontSize + 1;
-				update();
-			}
-			e.preventDefault();
-		});
-		
-		function update() {
-			if(isNaN(value.value)){
-				form.reset();
-			}
-			else if (value.value != fontSize) {
-				var newValue = +value.value;
-				if(newValue<min){newValue=min;}
-				else if(newValue>max){newValue=max;}
-				fontSize = newValue;
-				document.body.style.fontSize = fontSize + "px";
-				save();
+		value.value = fontSize;
+		var autoUpdate = true;
+		value.addEventListener("change", set);
+		value.addEventListener("blur", set);
+		function set(){
+			if(autoUpdate){
+				update(this.value, true);
 			}
 		}
+		value.addEventListener("input", function() {
+			if (autoUpdate) {
+				update(this.value, false);
+			}
+		});
+		
+		document.getElementById("font-size-higher").addEventListener("click", function(e){
+			e.preventDefault();
+			update(fontSize + 1, true);
+		});
+
+		document.getElementById("font-size-lower").addEventListener("click", function(e) {
+ 			e.preventDefault();
+ 			update(fontSize - 1, true);
+		});
+		
+		function update(newFontSize, set) {
+			newFontSize = +newFontSize;
+			
+			if(isNaN(newFontSize)){
+				autoUpdate = false;
+				value.value = fontSize;
+				autoUpdate = true;
+			}
+			else {
+				if(newFontSize<min){
+					if(!set){return;}
+					newFontSize=min;
+				}
+				else if(newFontSize>max){
+					if(!set){return;}
+					newFontSize=max;
+				}
+				
+				if(newFontSize!==fontSize){
+					fontSize = newFontSize;
+					document.body.style.fontSize=fontSize+"px";
+					save();
+				}
+				
+				if(value.value!=fontSize){
+					autoUpdate = false;
+					value.value = fontSize;
+					autoUpdate = true;
+				}
+			}
+		}
+		
 		function save() {
-			document.cookie = "fs=" + value.value + ";expires=" + expires;
+			document.cookie = "fs=" + fontSize + ";expires=" + expires;
 		}
 		
 		var cookieFontSize = cookie.match(/(?:^|;\s*)fs=(1[5-9]|2[0-9]|30)(?=;|$)/);
 		if (cookieFontSize) {
-			value.value = cookieFontSize[1];
-			update(true);
+			update(cookieFontSize[1], true);
+			save();
 		}
 	})();
 	
