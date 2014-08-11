@@ -31,7 +31,7 @@
 	
 	var findSmall = /(?: |%20)\(small\)(?=\.[^.]+$)/;
 	function processImage() {
-		this.removeEventListener("load", processImage);
+		removeListeners(this);
 
 		if (
 			(
@@ -44,24 +44,44 @@
 			large.small = this;
 			large.className = "large";
 			large.addEventListener("load", processLarge);
+			large.addEventListener("error", errorLarge);
 			large.src = this.src.replace(findSmall, "");
 		}
 	}
+	function errorImage(img){
+		img = img.target;
+		img.className = "error";
+		removeListeners(img);
+	}
+	function removeListeners(img) {
+		img.removeEventListener("load", processImage);
+		img.removeEventListener("error", errorImage);
+	}
+	
 	function processLarge() {
-		this.removeEventListener("load", processLarge);
+		removeListenersLarge(this);
 		
 		this.small.parentNode.insertBefore(this, this.small);
 		this.small.className = "small";
 		delete this.small;
 	}
+	function errorLarge(img) {
+		img = img.target;
+		removeListenersLarge(img);
+	}
+	function removeListenersLarge(img) {
+		img.removeEventListener("load", processLarge);
+		img.removeEventListener("error", errorLarge);
+	}
 
 	Array.prototype.forEach.call(document.getElementsByClassName("image"), function(img) {
 		img = img.getElementsByTagName("IMG")[0];
+		img.addEventListener("load", processImage);
+		img.addEventListener("error", errorImage);
 		if (img.complete) {
-			processImage.call(img);
-		}
-		else {
-			img.addEventListener("load", processImage);
+			var src = img.src;
+			img.src = "";
+			img.src = src;
 		}
 	});
 })();
@@ -69,7 +89,7 @@
 (function setupControls() {
 	var controls = document.getElementById("controls");
 	controls.className = controls.className.replace(
-		/^no-script\s+|\s+no-script(?=\s+|$)/,
+		/^no-script\s+|\s+no-script(?=\s|$)/,
 		""
 	);
 	
@@ -79,7 +99,7 @@
 	if (controls.offsetHeight !== height) {
 		controls.className += " opener";
 	}
-	controls.open = true;
+	//controls.open = true;
 
 	var cookie = document.cookie,
 		expires = new Date(Date.now() + (28 * 24 * 60 * 60 * 1000));
@@ -242,4 +262,10 @@
 	})();
 
 	document.getElementById("facebook-like").src += "&href=" + window.location.href;
+})();
+
+(function setupEmailLink() {
+	document.getElementById("email-link").href="mailto:"+
+		"?subject="+encodeURIComponent("I just read "+document.title)+
+		"&body="+encodeURIComponent("You can read it at: "+window.location.href);
 })();

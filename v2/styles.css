@@ -1,9 +1,13 @@
 body {font-family:sans-serif; margin:0;}
 
 .b-w {color:black; background-color:white;}
+	.b-w .scread {background-color:white;}
 .grey {color:#333333; background-color:white;}
+	.grey .scread {background-color:white;}
 .sepia {color:#5F4B32; background-color:#FBF0D9;}
+	.sepia .scread {background-color:#FBF0D9;}
 .w-b {color:white; background-color:black;}
+	.w-b .scread {background-color:black;}
 	.w-b a {color:skyblue;}
 	.w-b .field .value {color:white; background-color:black;}
 	.w-b .pitch .avatar {background:white; padding-left:0.6em;}
@@ -20,6 +24,11 @@ a {color:blue; text-decoration:underline;}
 h1, .h1, h2, .h2 {font-family:serif; margin:0; font-weight:normal;}
 	h1, .h1 {font-size:1.8em;}
 	h2, .h2 {font-size:1.2em;}
+
+.print-only {display:none;}
+
+.scread {position:absolute; right:100%; padding:0.3em 0.6em;}
+.scread:focus {left:0; right:auto;}
 
 .centre-col {max-width: 40.5em; margin:0 auto; padding:0 1.8em; clear:left;}
 .seperate {margin-top:1.8em; margin-bottom:1.8em;}
@@ -69,17 +78,21 @@ h1, .h1, h2, .h2 {font-family:serif; margin:0; font-weight:normal;}
 	.image img {max-height:80%; max-width:100%; width:auto; height:auto;}
 	.image img.large {}
 	.image img.small {display:none;}
+	.image img.error {display:none;}
 	.image figcaption {font-style:italic;}
 
 #controls {display:block; padding-left:0;}
 	#controls.no-script {display:none;}
 	#controls .heading {
 		display:block; overflow:hidden;
-		line-height: 2.4em;
-	}
+		/* line-height: 2.4em; */
+	
+		padding-top: 0.3em;
+		padding-bottom: 0.3em;
+}
 		#controls .heading .message {display:none;}
 		#controls.opener .heading {cursor:pointer;}
-		#controls.opener .message {float:right; opacity:0.6;}
+		#controls.opener .message {float:right; opacity:0.6; margin-top:0.2em;}
 		#controls.opener .is-closed {display:block;}
 		#controls.opener[open] .is-open {display:block;}
 		#controls.opener[open] .is-closed {display:none;}
@@ -113,7 +126,7 @@ h1, .h1, h2, .h2 {font-family:serif; margin:0; font-weight:normal;}
 	.quote.citation quote {font-family:serif;}
 	.quote.citation footer {font-style:italic;}
 
-.pitch {border-top:1px solid #dddddd;}
+.pitch {border-top:1px solid;}
 .pitch .avatar {float:right; margin:0 -1.8em 0.6em 0.6em;}
 .pitch p {margin:0.6em 0;}
 .pitch p:first-of-type {margin-top:1.8em;}
