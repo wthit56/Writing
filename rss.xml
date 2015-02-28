@@ -6,29 +6,11 @@
 		<link>http://wthit56.github.io/Writing/</link>
 		<description>My name is Thomas Giles. I am a writer specializing in science-fiction. With many years experience in programming professionally, I enjoy bringing the technical side of sci-fi to life and strive to make such topics accessible to a wider audience. I write on a regular basis for the kind people supporting me through Patreon, my loyal beta readers giving feedback on my works and helping me hone my ability to create worlds and share them with readers.</description>
 					<item>
-					  <title>An Audience with Aulk</title>
-					  <link>http://wthit56.github.io/Writing/An%20Audience%20with%20Aulk.html</link>
-					  <guid>http://wthit56.github.io/Writing/An%20Audience%20with%20Aulk.html</guid>
-					  <pubDate>Tue, 26 Nov 2013 15:26:00 GMT</pubDate>
-					  <description><![CDATA[A pilgrim and a skeptical woodsman make their way through the forest of giant trees, with the task of finding the great Aulk, father of forests and hearing what he has to say. &mdash;A fantasy story at heart, but all is not as it seems.]]></description>
-					</item>
-				
-
-					<item>
-					  <title>Captain Jack</title>
-					  <link>http://wthit56.github.io/Writing/Captain%20Jack.html</link>
-					  <guid>http://wthit56.github.io/Writing/Captain%20Jack.html</guid>
-					  <pubDate>Wed, 25 Dec 2013 17:30:00 GMT</pubDate>
-					  <description><![CDATA[It's not easy for Jack to use the holographic computer interfaces at school. But Art, his AI babysitter-cum-mentor has an idea that might bring the boy's innate creative flare out into the open.]]></description>
-					</item>
-				
-
-					<item>
-					  <title>Cleanup</title>
-					  <link>http://wthit56.github.io/Writing/Cleanup.html</link>
-					  <guid>http://wthit56.github.io/Writing/Cleanup.html</guid>
-					  <pubDate>Sat, 02 Nov 2013 10:48:00 GMT</pubDate>
-					  <description><![CDATA[Turns out space exploration isn&rsquo;t as fast-paced and glamorous as TV makes out. Captain James Sidler and his crew have spent a year in cryostasis only to reach a dust cloud in space.]]></description>
+					  <title>Lost Technology</title>
+					  <link>http://wthit56.github.io/Writing/Lost%20Technology.html</link>
+					  <guid>http://wthit56.github.io/Writing/Lost%20Technology.html</guid>
+					  <pubDate>Wed, 21 May 2014 21:42:00 GMT</pubDate>
+					  <description><![CDATA[A little boy wanders around a museum, fascinated by ancient computing technology, guided by his companion, &ldquo;AI&rdquo;.]]></description>
 					</item>
 				
 
@@ -69,11 +51,29 @@
 				
 
 					<item>
-					  <title>Lost Technology</title>
-					  <link>http://wthit56.github.io/Writing/Lost%20Technology.html</link>
-					  <guid>http://wthit56.github.io/Writing/Lost%20Technology.html</guid>
-					  <pubDate>Wed, 21 May 2014 21:42:00 GMT</pubDate>
-					  <description><![CDATA[A little boy wanders around a museum, fascinated by ancient computing technology, guided by his companion, &ldquo;AI&rdquo;.]]></description>
+					  <title>Captain Jack</title>
+					  <link>http://wthit56.github.io/Writing/Captain%20Jack.html</link>
+					  <guid>http://wthit56.github.io/Writing/Captain%20Jack.html</guid>
+					  <pubDate>Wed, 25 Dec 2013 17:30:00 GMT</pubDate>
+					  <description><![CDATA[It's not easy for Jack to use the holographic computer interfaces at school. But Art, his AI babysitter-cum-mentor has an idea that might bring the boy's innate creative flare out into the open.]]></description>
+					</item>
+				
+
+					<item>
+					  <title>An Audience with Aulk</title>
+					  <link>http://wthit56.github.io/Writing/An%20Audience%20with%20Aulk.html</link>
+					  <guid>http://wthit56.github.io/Writing/An%20Audience%20with%20Aulk.html</guid>
+					  <pubDate>Tue, 26 Nov 2013 15:26:00 GMT</pubDate>
+					  <description><![CDATA[A pilgrim and a skeptical woodsman make their way through the forest of giant trees, with the task of finding the great Aulk, father of forests and hearing what he has to say. &mdash;A fantasy story at heart, but all is not as it seems.]]></description>
+					</item>
+				
+
+					<item>
+					  <title>Cleanup</title>
+					  <link>http://wthit56.github.io/Writing/Cleanup.html</link>
+					  <guid>http://wthit56.github.io/Writing/Cleanup.html</guid>
+					  <pubDate>Sat, 02 Nov 2013 10:48:00 GMT</pubDate>
+					  <description><![CDATA[Turns out space exploration isn&rsquo;t as fast-paced and glamorous as TV makes out. Captain James Sidler and his crew have spent a year in cryostasis only to reach a dust cloud in space.]]></description>
 					</item>
 				
 	  </channel>
