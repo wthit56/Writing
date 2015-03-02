@@ -1,27 +1,11 @@
 var html = require("./-html.template._.js"), htmlEncode = require("./-htmlEncode.js");
 var complexText = require("./-complexText.js");
 
-/*
-var page = {
-	is_home: false,
-	title: ("" || ["", ""]), author: "Thomas Giles",
-	blurb: "",
-	main: "", main_class: ""
-};
-*/
-
 var hasNewlines = /[\n\r]/;
-module.exports = function page_template() {
-	if (!this.author) {
-		this.author = "Thomas Giles";
-	}
-
-	//console.log("**title =",this.title);
-	//console.log(this);
-
+var page = module.exports = function page_template() {
 	return {
 		toString: html, base: this.base || this,
-		title: this.title + ", by " + this.author,
+		title: this.title + ", by " + (this.author || require("./-defaults.json").author),
 		body: _/*
 			<body class="print-hook b-w justified">
 				<a href="#main" class="scread">Skip to main content</a>
@@ -29,13 +13,13 @@ module.exports = function page_template() {
 				(this.is_home ? "<div>" : _/*<article class="story">*/) + _/*
 					<header class="intro for-prose centre-col">
 						<h1 class="title">*/ + (
-							this.title_complex
-								? this.title_complex
+							this.title.complex
+								? this.title.complex
 									.map(htmlEncode.wrapper(_/*<span class="wrap-block">*/, "</span>"))
 									.join(" ")
 								: htmlEncode(this.title)
 						) + _/*</h1>
-						<h2 class="sub title">by <span class="wrap-block">*/ + this.author + _/*</span></h2>
+						<h2 class="sub title">by <span class="wrap-block">*/ + (this.author || require("./-defaults.json").author) + _/*</span></h2>
 						<aside class="blurb */ + (hasNewlines.test(this.blurb) ? "simple" : "complex") + _/*">
 							*/ + (
 								hasNewlines.test(this.blurb)
@@ -134,4 +118,12 @@ module.exports = function page_template() {
 			</body>
 		*/
 	}.toString();
+};
+
+page.complexTitle = function() {
+	var title = Array.prototype.join.call(arguments, " ");
+	return {
+		toString: function() { return title; },
+		complex: Array.prototype.slice.call(arguments)
+	};
 };

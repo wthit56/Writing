@@ -1,7 +1,6 @@
 var htmlEncode = require("./-htmlEncode.js");
 var complexText = require("./-complexText.js");
 
-
 var formatDate = (function() {
 	var monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 	var dateNum, dateDigit;
@@ -29,7 +28,6 @@ module.exports = {
 	main: {
 		toString: function() {
 			var stories = meta.compiled.filter(function(page) {
-				//console.log(page.exports.type, page.meta.srcpath, page.exports.title + "", page.exports.show !== false);
 				return (page.exports.type == "story") && (page.exports.show !== false);
 			}).map(function unboxStory(story, i, a) {
 				return story.exports;

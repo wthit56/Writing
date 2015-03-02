@@ -6,7 +6,7 @@ module.exports = (_/*<?xml version="1.0" encoding="utf-8" ?>
 	<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	  <channel>
 		<atom:link href="*/ + site_url + _/*rss.xml" rel="self" />
-		<title>*/ + index.title + " " + index.author + _/*</title>
+		<title>*/ + index.title + ", by " + (index.author || require("./-defaults.json").author) + _/*</title>
 		<link>*/ + encodeURI(site_url) + _/*</link>
 		<description>*/ + index.blurb + _/*</description>*/ +
 		meta.compiled

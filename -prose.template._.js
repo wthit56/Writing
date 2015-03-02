@@ -109,14 +109,6 @@ prose.quote = {
 	})()
 };
 
-prose.complexTitle = function() {
-	var title = Array.prototype.join.call(arguments, " ");
-	return {
-		toString: function() { return title; },
-		complex: Array.prototype.slice.call(arguments)
-	};
-};
-
 var current;
 
 var _page = require("./-page.template._.js");

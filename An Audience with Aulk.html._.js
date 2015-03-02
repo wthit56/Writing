@@ -2,7 +2,7 @@ var prose = require("./-prose.template._.js");
 module.exports = {
 	toString: prose.page,
 	meta: meta, type: "story", released: new Date("Tue, 26 Nov 2013 15:26:00 GMT"),
-	title: prose.complexTitle("An Audience", "with Aulk"),
+	title: require("./-page.template._.js").complexTitle("An Audience", "with Aulk"),
 	blurb: "A pilgrim and a skeptical woodsman make their way through the forest of giant trees, with the task of finding the great Aulk, father of forests and hearing what he has to say. —A fantasy story at heart, but all is not as it seems.",
 	blurb_short: "Two men journey to consult with the Great Aulk, Father of Forests.",
 	content: [
