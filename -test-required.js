@@ -1,0 +1,1 @@
+console.log("not compiled: " + (_/* BUG */ === undefined));

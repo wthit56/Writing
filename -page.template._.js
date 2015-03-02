@@ -1,30 +1,52 @@
-<!doctype html>
-		<html>
-			<head>
-				<title>Gadwell (Teaser), by Thomas Giles</title>
-				<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
-				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<base href=".." />
-				<link href="styles.css" rel="stylesheet" type="text/css" />
-				<link href="print.css" rel="stylesheet" type="text/css" media="print" />
-				<link href="rss.xml" rel="alternate" type="application/rss+xml" title="Writings by Thomas Giles" />
-			</head>
-			
+var html = require("./-html.template._.js"), htmlEncode = require("./-htmlEncode.js");
+var complexText = require("./-complexText.js");
+
+/*
+var page = {
+	is_home: false,
+	title: ("" || ["", ""]), author: "Thomas Giles",
+	blurb: "",
+	main: "", main_class: ""
+};
+*/
+
+var hasNewlines = /[\n\r]/;
+module.exports = function page_template() {
+	if (!this.author) {
+		this.author = "Thomas Giles";
+	}
+
+	//console.log("**title =",this.title);
+	//console.log(this);
+
+	return {
+		toString: html, base: this.base || this,
+		title: this.title + ", by " + this.author,
+		body: _/*
 			<body class="print-hook b-w justified">
 				<a href="#main" class="scread">Skip to main content</a>
-				<a href="" class="scread">Read more stories</a><article class="story">
+				*/ + (this.is_home ? "" : _/*<a href="" class="scread">Read more stories</a>*/) +
+				(this.is_home ? "<div>" : _/*<article class="story">*/) + _/*
 					<header class="intro for-prose centre-col">
-						<h1 class="title">Gadwell (Teaser)</h1>
-						<h2 class="sub title">by <span class="wrap-block">Thomas Giles</span></h2>
-						<aside class="blurb simple">
-							<p>I have a brand new story I&rsquo;m working on, featuring a detective named Gadwell. I don&rsquo;t have any plans for this prose to turn up in the story, but it should give you an idea of who Detective Gadwell is and the world he lives in.</p>
-<p>I&rsquo;ll be releasing the first few chapters, in first-draft form, to my <a title="Go to Thomas Giles&rsquo; Patreon page" href="http://www.patreon.com/thomasgiles" target="_blank">Patreon</a> supporters soon. In the meantime, I hope you enjoy this snippet!</p>
-	
+						<h1 class="title">*/ + (
+							this.title_complex
+								? this.title_complex
+									.map(htmlEncode.wrapper(_/*<span class="wrap-block">*/, "</span>"))
+									.join(" ")
+								: htmlEncode(this.title)
+						) + _/*</h1>
+						<h2 class="sub title">by <span class="wrap-block">*/ + this.author + _/*</span></h2>
+						<aside class="blurb */ + (hasNewlines.test(this.blurb) ? "simple" : "complex") + _/*">
+							*/ + (
+								hasNewlines.test(this.blurb)
+									? complexText(this.blurb)
+									: this.blurb
+							) + _/*
 							<a class="home no-print" href="">Read more stories</a>
 						</aside>
 					</header>
 
-					
+					*/ + (this.pre_controls || "") + _/*
 
 					<details id="controls" class="seperate no-script no-selection">
 						<summary class="centre-col heading">
@@ -65,16 +87,11 @@
 						</div>
 					</details>
 
-					<section id="main" class="prose">
-						
-			<div class="centre-col" id="content-1"><p>Gadwell looked around at his apartment. Since graduation into the workforce of Montel-6 it had been home, though no photos perched in alcoves and no artwork hung on walls. All that seemed dull to him now, just as they said it would.</p>
-<p>Tomorrow, it would all be someone else&rsquo;s. They&rsquo;d take his clothes, his flat, his body&hellip; and he would take theirs. All he&rsquo;d take into his new life was the keys in his pocket and the watch on his wrist.</p>
-<p>He strode towards the door. Then, with a silent goodbye, he opened it and stepped out into the sunlight.</p>
-		
-			</div>
-		
+					<section id="main"*/ + (this.main_class ? _/* class="*/ + this.main_class + _/*"*/ : "") + _/*>
+						*/ + this.main + _/*
 						<span class="clear"></span>
-					</section></article>
+					</section>*/ +
+				(this.is_home ? "</div>" : "</article>") + _/*
 
 				<footer class="centre-col seperate pitch vcard">
 					<img alt="Thomas Giles" class="avatar photo fn" src="avatar.png" />
@@ -89,7 +106,8 @@
 						Thanks for reading this story! If you liked it, you can 
 						<a title="Subscribe to get Email Updates" href="http://blogtrottr.com/?subscribe=http://wthit56.github.io/Writing/rss.xml" target="_blank">subscribe</a>
 						<span class="print-only">on the website (<a href="http://wthit56.github.io/Writing">http://wthit56.github.io/Writing</a>)</span>
-						to get emailed when a new story or update is released.<a class="home no-print" href="">Read more stories</a>
+						to get emailed when a new story or update is released.*/ +
+						(this.is_home ? "" : _/*<a class="home no-print" href="">Read more stories</a>*/) + _/*
 					</p>
 					<menu class="share no-print">
 						You can let others know about my writing by sharing on
@@ -114,6 +132,6 @@
 				</footer>
 				<script src="script.js" type="text/javascript"></script>
 			</body>
-		
-		</html>
-	
+		*/
+	}.toString();
+};
