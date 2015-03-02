@@ -20,13 +20,12 @@ var page = module.exports = function page_template() {
 								: htmlEncode(this.title)
 						) + _/*</h1>
 						<h2 class="sub title">by <span class="wrap-block">*/ + (this.author || require("./-defaults.json").author) + _/*</span></h2>
-						<aside class="blurb */ + (hasNewlines.test(this.blurb) ? "simple" : "complex") + _/*">
-							*/ + (
-								hasNewlines.test(this.blurb)
-									? complexText(this.blurb)
-									: this.blurb
+						<aside class="blurb">
+							*/ + complexText(
+								this.blurb + (this.details ? "\n" + this.details : ""),
+								{ pre: "<p>", post: "</p>", post_last: _/*<a class="home no-print" href="">Read more stories</a></p>*/ }
 							) + _/*
-							<a class="home no-print" href="">Read more stories</a>
+							<span class="clear"></span>
 						</aside>
 					</header>
 
@@ -71,7 +70,7 @@ var page = module.exports = function page_template() {
 						</div>
 					</details>
 
-					<section id="main"*/ + (this.main_class ? _/* class="*/ + this.main_class + _/*"*/ : "") + _/*>
+					<section id="main"*/ + (this.main_class ? _/* class="main */ + this.main_class + _/*"*/ : "") + _/*>
 						*/ + this.main + _/*
 						<span class="clear"></span>
 					</section>*/ +

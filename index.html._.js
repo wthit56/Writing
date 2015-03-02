@@ -1,5 +1,4 @@
 var htmlEncode = require("./-htmlEncode.js");
-var complexText = require("./-complexText.js");
 
 var formatDate = (function() {
 	var monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -18,6 +17,8 @@ var formatDate = (function() {
 		) + ", " + date.getFullYear();
 	};
 })();
+
+var findBlocks = /^\s*([^\s][\W\w]*?)$/gm;
 
 module.exports = {
 	toString: require("./-page.template._.js"),
@@ -54,18 +55,23 @@ module.exports = {
 					+ _/*">
 						<article>
 							<h1><a href="*/ + story.meta.buildpath + _/*" class="title-link">*/ + story.title + _/*</a></h1>
-							*/ + (
-								((i < stories.latest) || !story.blurb_short)
-									? complexText(story.blurb)
-									: "<p>" + story.blurb_short + "</p>"
+							*/ + 
+							require("./-complexText.js")(
+								(i < stories.latest)
+									? story.blurb + (story.details ? "\n" + story.details : "")
+									: (story.blurb_short || story.blurb),
+								{
+									pre: "<p>", pre_first: _/*<p class="first">*/,
+									post: "</p>", post_last: (
+										(i < stories.latest) && (story.updated || story.released)
+											? _/*<span class="note */ + (story.updated ? "updated" : "released") + _/* line-height"
+											 title="*/ + (story.updated ? "Updated" : "Released") + _/*">
+											*/ + formatDate(story.updated || story.released) + "</span></p>"
+											: null
+									)
+								}
 							) +
-							(
-								(i < stories.latest) && (story.updated || story.released)
-									? _/*<span class="note */ + (story.updated ? "updated" : "released") + _/* line-height"
-									 title="*/ + (story.updated ? "Updated" : "Released") + _/*">
-									*/ + formatDate(story.updated || story.released) + "</span>"
-									: ""
-							) + _/*
+							(i < stories.latest ? _/*<span class="clear"></span>*/ : "") + _/*
 						</article>
 					</li>
 				*/;

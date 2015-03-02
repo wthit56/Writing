@@ -9,7 +9,6 @@ module.exports = {
 		Written for <a href="http://www.sampad.org.uk/learning/opportunities/competitions/" target="_blank">Sampad’s “Inspired By My Museum” competition</a>. It was selected to be published in the printed anthology.
 		I wrote it based on an ancient memory of going to London’s National History Museum and wandering around the history of computers. They had all sorts there, including some of the first RAM (memory) and CPUs (processors, but made of wood and metal). I was really fascinated by it all, and started trying to figure out how the computer would “talk” to the different nodes in the memory grid and such.
 	*/,
-	blurb_short: "A little boy wanders around a museum, fascinated by ancient computing technology, guided by his companion, “AI”.",
 	content: [
 		prose(_/*
 			“What’s that?” Toby asked, pointing at a mess of metal and wires behind the glass.
