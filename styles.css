@@ -141,13 +141,14 @@ h1, .h1, h2, .h2 {font-family:serif; margin:0; font-weight:normal;}
 	.index li {clear:both; margin:0.75em 0;}
 		.index li h1 {display:inline; font-size:1.5em;}
 			.index li h1 a {color:inherit;}
-		.index li.old {width:50%; clear:none;}
+		.index li.old {width:50%; clear:none; margin-bottom:0;}
+			.index li.old.top {margin-top:0;}
 			.index li.old h1 {font-size:1.2em;}
-			.index li.old article {padding:0 0.6em;}
+			.index li.old article {margin: 0 0.75em;}
 			.index li.old.left {float:left; clear:left;}
-				.index li.old.left article {padding-left:0;}
+				.index li.old.left article {margin-left: 0;}
 			.index li.old.right {float:right; clear:right;}
-				.index li.old.right article {padding-right:0;}
+				.index li.old.right article {margin-right: 0;}
 	.index p {margin:0.75em 0;}
 		.index p.first {display:inline; padding-left:0.75em; margin:0;}
 	.index .note {float:right; color:#000000; padding: 0 0.5em; border-radius:0.5em; font-size:85%;}
