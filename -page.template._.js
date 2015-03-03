@@ -90,7 +90,7 @@ var page = module.exports = function page_template() {
 						<a title="Subscribe to get Email Updates" href="http://blogtrottr.com/?subscribe=http://wthit56.github.io/Writing/rss.xml" target="_blank">subscribe</a>
 						<span class="print-only">on the website (<a href="http://wthit56.github.io/Writing">http://wthit56.github.io/Writing</a>)</span>
 						to get emailed when a new story or update is released.*/ +
-						(this.is_home ? "" : _/*<a class="home no-print" href="">Read more stories</a>*/) + _/*
+						(this.is_home ? "" : _/* <a class="home no-print" href="">Read more stories</a>*/) + _/*
 					</p>
 					<menu class="share no-print">
 						You can let others know about my writing by sharing on
