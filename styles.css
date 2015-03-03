@@ -156,7 +156,8 @@ h1, .h1, h2, .h2 {font-family:serif; margin:0; font-weight:normal;}
 
 @media (max-width:20em) {
 	.centre-col {padding:0 0.6em;}
-	.main {text-align:left; text-indent:1.2em;}
+	.main {text-align:left;}
+		.main.prose p {text-indent:1.2em;}
 	/*.pitch p.first {margin-top:1.8em;}*/
 	.pitch .avatar {float:right; margin-right:-0.6em;}
 }
