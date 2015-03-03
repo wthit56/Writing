@@ -105,7 +105,8 @@ h1, .h1, h2, .h2 {font-family:serif; margin:0; font-weight:normal;}
 	#controls .change {width:24px; width:1.8em;}
 
 
-.main p {margin:0; text-align:justify;}
+.main {text-align:justify;}
+.main p {margin:0;}
 .main p, .main .line-height {line-height:1.8em;}
 .not-justified .main p {text-align:left; text-align:start;}
 
