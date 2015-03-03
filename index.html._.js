@@ -51,6 +51,10 @@ module.exports = {
 							i >= stories.latest
 								? " " + ((i - stories.latest) % 2 === 0 ? "left" : "right")
 								: ""
+						) +
+						(
+							(i >= stories.latest) && (i - stories.latest < 2)
+								? " top" : ""
 						)
 					+ _/*">
 						<article>
