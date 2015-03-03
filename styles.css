@@ -114,7 +114,7 @@ h1, .h1, h2, .h2 {font-family:serif; margin:0; font-weight:normal;}
 
 .prose h1 {margin-top:1.8em; margin-bottom:0.3em; padding-bottom:0.3em; border-bottom:1px solid; font-size:1.5em;}
 .prose hr {border:0; text-align:center; margin:1.2em 0;}
-.prose hr:before {content:"\2756"; display:block; font-size:1.5em;}
+	.prose hr:before {content:"\2756"; display:block; font-size:1.5em;}
 
 .quote {margin-top:1.2em; margin-bottom:1.2em;}
 .quote .inner {padding:0.6em 1.8em;}
@@ -131,10 +131,10 @@ h1, .h1, h2, .h2 {font-family:serif; margin:0; font-weight:normal;}
 	.quote.citation footer {font-style:italic;}
 
 .pitch {border-top:1px solid;}
-.pitch .avatar {float:right; margin:0 -1.8em 0.6em 0.6em;}
-.pitch p {margin:0.6em 0;}
-.pitch p:first-of-type {margin-top:1.8em;}
-.pitch menu {padding-left:0;}
+	.pitch .avatar {float:right; margin:0 -1.8em 0.6em 0.6em;}
+	.pitch p {margin:0.6em 0;}
+		.pitch p.first {margin-top:1.8em;}
+	.pitch menu {padding-left:0;}
 
 .index {}
 	.index ul {list-style:none;}
@@ -156,7 +156,9 @@ h1, .h1, h2, .h2 {font-family:serif; margin:0; font-weight:normal;}
 
 @media (max-width:20em) {
 	.centre-col {padding:0 0.6em;}
-	.prose p {text-align:left; text-indent:1.2em;}
+	.main {text-align:left; text-indent:1.2em;}
+	/*.pitch p.first {margin-top:1.8em;}*/
+	.pitch .avatar {float:right; margin-right:-0.6em;}
 }
 
 @media (max-width:40em) {
