@@ -132,7 +132,7 @@ h1, .h1, h2, .h2 {font-family:serif; margin:0; font-weight:normal;}
 
 .pitch {border-top:1px solid;}
 	.pitch .avatar {float:right; margin:0 -1.8em 0.6em 0.6em;}
-	.pitch p {margin:0.6em 0;}
+	.pitch p, .pitch menu {margin:0.6em 0;}
 		.pitch p.first {margin-top:1.8em;}
 	.pitch menu {padding-left:0;}
 
@@ -158,7 +158,6 @@ h1, .h1, h2, .h2 {font-family:serif; margin:0; font-weight:normal;}
 	.centre-col {padding:0 0.6em;}
 	.main {text-align:left;}
 		.main.prose p {text-indent:1.2em;}
-	/*.pitch p.first {margin-top:1.8em;}*/
 	.pitch .avatar {float:right; margin-right:-0.6em;}
 }
 
@@ -171,6 +170,5 @@ h1, .h1, h2, .h2 {font-family:serif; margin:0; font-weight:normal;}
 body {
 	/* Colours: Black on White (b-w) */
 	color:black; background-color:white;
-	/* Font-Size: 17 */
 	font-size:17px;
 }
