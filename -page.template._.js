@@ -9,7 +9,7 @@ var page = module.exports = function page_template() {
 		body: _/*
 			<body class="print-hook b-w justified">
 				<a href="#main" class="scread">Skip to main content</a>
-				*/ + (this.is_home ? "" : _/*<a href="" class="scread">Read more stories</a>*/) +
+				*/ + (this.is_home ? "" : _/*<a href="./" class="scread">Read more stories</a>*/) +
 				(this.is_home ? "<div>" : _/*<article class="story">*/) + _/*
 					<header class="intro for-prose centre-col">
 						<h1 class="title">*/ + (
@@ -23,7 +23,7 @@ var page = module.exports = function page_template() {
 						<aside class="blurb">
 							*/ + complexText(
 								this.blurb + (this.details ? "\n" + this.details : ""),
-								{ pre: "<p>", post: "</p>", post_last: _/*<a class="home no-print" href="">Read more stories</a></p>*/ }
+								{ pre: "<p>", post: "</p>", post_last: _/*<a class="home no-print" href="./">Read more stories</a></p>*/ }
 							) + _/*
 							<span class="clear"></span>
 						</aside>
@@ -90,7 +90,7 @@ var page = module.exports = function page_template() {
 						<a title="Subscribe to get Email Updates" href="http://blogtrottr.com/?subscribe=http://wthit56.github.io/Writing/rss.xml" target="_blank">subscribe</a>
 						<span class="print-only">on the website (<a href="http://wthit56.github.io/Writing">http://wthit56.github.io/Writing</a>)</span>
 						to get emailed when a new story or update is released.*/ +
-						(this.is_home ? "" : _/* <a class="home no-print" href="">Read more stories</a>*/) + _/*
+						(this.is_home ? "" : _/* <a class="home no-print" href="./">Read more stories</a>*/) + _/*
 					</p>
 					<menu class="share no-print">
 						You can let others know about my writing by sharing on
