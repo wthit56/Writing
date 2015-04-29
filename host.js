@@ -8,7 +8,10 @@
 ### request-directory-index-missing
 */
 
+var root = __dirname + "/src";
+
 var __ = require("./__.js");
+__.root = root;
 
 var fs = require("fs"), path = require("path");
 var wrap_callback = require("wrap-callback");
@@ -20,7 +23,6 @@ var quick_host = require("C:/Users/Thomas Giles/JavaScript/Quick-Host/v2/index.j
 quick_host(__dirname + "/src", 8000, function(error, host) {
 	if (error) { throw error; }
 	else {
-		__.root = host.root;
 		console.log("Server running http://localhost:" + host.port + "/...");
 		host.on("request", function(request, response, resume, cancel) {
 			if (is_.test(request.url)) {

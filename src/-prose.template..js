@@ -123,7 +123,7 @@ prose.page = function prose_template_page() {
 	}
 
 	var html = {
-		toString: _page, base: this,
+		toString: _page, __filename: this.__filename,
 		title: this.title, title_complex: this.title_complex, author: this.author,
 		blurb: this.blurb + (this.details ? "\n" + this.details : ""),
 		pre_controls: (this.content[0].type === "image" ? this.content[0].toString(0, this.content) : ""),

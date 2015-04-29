@@ -6,7 +6,7 @@ var complexText = require("./-complexText.js");
 var hasNewlines = /[\n\r]/;
 var page = module.exports = function page_template() {
 	return {
-		toString: html, base: this.base || this,
+		toString: html, __filename: this.__filename,
 		title: this.title + ", by " + (this.author || require("./-defaults.json").author),
 		body: _/*
 			<body class="print-hook b-w justified">
